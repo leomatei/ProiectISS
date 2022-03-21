@@ -1,0 +1,26 @@
+.footer{
+    position: fixed;
+    width: 100vw;
+    background: #000;
+    color: #fff;
+    bottom:0;
+    padding: 5px;
+    &__content{
+        display: flex;
+    }
+    &__contact-info{
+        display:flex;
+        flex-direction: column;
+        
+    }
+    &__input{
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        margin:5px;
+        &__button{
+            margin-top:5px;
+            width:100px;
+        }
+    }
+}

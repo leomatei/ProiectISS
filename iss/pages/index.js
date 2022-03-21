@@ -1,4 +1,6 @@
 import {gql, GraphQLClient} from 'graphql-request'
+import Header from '../components/header.js'
+import Footer from '../components/footer.js'
 export const getStaticProps = async () =>{
   
   const url = process.env.NEXT_PUBLIC_GRAPH_CMS_ENDPOINT
@@ -32,14 +34,16 @@ export const getStaticProps = async () =>{
   }
 }
 
-
-
 const Home=({products})=> {
   console.log(products)
   return (
-    <div>
-      Heloo
-    </div>
+    <>
+      <div className="app">
+        <Header/>
+        <Footer/>
+      </div>
+      
+    </>
   )
 }
 export default Home;

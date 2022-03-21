@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #ffffff;
+    height: 52px;
+    background: rgb(114, 150, 114);
+    &__buttons{
+        display:flex;
+        align-items: center;
+    }
+    &__button{
+        padding:10px 5px;
+        height: 50px;
+        border: 1px solid #ffffff;
+        &:hover{
+            opacity: .7;
+        }
+    }
+}
