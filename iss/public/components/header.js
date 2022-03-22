@@ -28,7 +28,7 @@ return (
             />
             <ButtonLink
                 buttonClass="header__button"
-                clickAction="#"
+                clickAction="/products"
                 text="produse"
             />
         </div>
