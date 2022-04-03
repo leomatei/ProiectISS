@@ -1,6 +1,7 @@
 import {gql, GraphQLClient} from 'graphql-request'
 import Footer from '../../public/components/footer'
 import Header from '../../public/components/header'
+import ProductList from '../../public/components/productsList'
 
 export const getStaticProps = async () =>{
     const url = process.env.NEXT_PUBLIC_GRAPH_CMS_ENDPOINT
@@ -35,16 +36,14 @@ export const getStaticProps = async () =>{
 }
 
 const ProductsPage = ({products}) =>{
-    const list=()=>(<ul className='products-list'>
-        {products.map((product,index)=><li>{JSON.stringify(product)}</li>)}
-    </ul>)
+    
 
     return(
         <>
             <Header/>
             <div className='container'>
                 <h1 className='container__title'>Produse</h1>
-                {list()}
+                <ProductList products={products}/>
             </div>
             <Footer/>
         </>
