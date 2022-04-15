@@ -2,12 +2,12 @@ import Header from "../public/components/header"
 import Footer from "../public/components/footer"
 import React from "react"
 import { useForm } from "react-hook-form";
-import signup from "./api/signup";
+import signup from "./api/signup"
 
 
 const signUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = async data => await signup({...data, seller: false});
+    const onSubmit = async data => console.log(await signup({...data, seller: false},''));
     // const firstRef=React.createRef()
     // const handleSubmit=()=>{
     //     console.log(firstRef.current.value)
@@ -26,6 +26,7 @@ const signUp = () => {
                 <label>parola</label>
                 <input placeholder="parola" type="password" {...register("parola", { required: true, pattern: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!])/i })}></input>
                 {errors.parola && <span>parola nu este valida</span>}
+                <label>rolul </label>
                 <input type="submit"></input>
             </form>
             <Footer/>

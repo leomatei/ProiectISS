@@ -1,12 +1,10 @@
 import {gql, GraphQLClient} from 'graphql-request'
 import Header from '../../public/components/header'
 import Footer from '../../public/components/footer'
-import ProductsPage from '../products'
 import notFound from '../404'
 
 export const getServerSideProps = async(pageContext) =>{
     const url = process.env.NEXT_PUBLIC_GRAPH_CMS_ENDPOINT
-
     const graphQLClient=new GraphQLClient (url, {
         headers:{
           "Authorizations": process.env.NEXT_PUBLIC_GRAPH_CMS_TOKEN,
@@ -36,7 +34,6 @@ export const getServerSideProps = async(pageContext) =>{
 
     const data = await graphQLClient.request(query, variables)
     const product = data.product
-
     return {
         props:{
             product
@@ -48,7 +45,9 @@ const Product=({product})=>{
     if(product===null){
         return notFound()
     }
-    console.log('adsa')
+
+    
+
     return(
         <>
             <Header/>

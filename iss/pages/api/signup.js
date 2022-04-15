@@ -15,7 +15,7 @@ export default async function(req, res){
         parola: req.parola,
         seller: req.seller
     }
-    const query = gql`
+    const mutation = gql`
         mutation($nume:String!,$email:String!,$parola:String!,$seller:Boolean!) {
             createUserAccount(
                 data: {name: $nume, email: $email, parola: $parola, seller: $seller}
@@ -24,5 +24,16 @@ export default async function(req, res){
             }
         }
     `
-    return await graphQLClient.request(query, variables)
+
+    let account_to_publish = await graphQLClient.request(mutation, variables)
+    account_to_publish =account_to_publish.createUserAccount.id
+    console.log(account_to_publish)
+    const publish=gql`
+        mutation($id:ID!){
+            publishUserAccount(where: {id: $id}){
+                name
+            }
+        }
+    `
+    await graphQLClient.request(publish,{id:account_to_publish})
 }
