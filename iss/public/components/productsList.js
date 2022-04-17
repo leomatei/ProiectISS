@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 const ProductList= (products) => {
     return <>
         <ul>
-            {console.log(products.products[0])}
         {products.products.map((product,index)=>{
             return (<li key={product.id} >
                 <a className="product" href={`../product/${product.slug}`}>

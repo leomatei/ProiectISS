@@ -1,28 +1,27 @@
 import Header from "../public/components/header"
 import Footer from "../public/components/footer"
-import React from "react"
 import { useForm } from "react-hook-form";
 import login from "./api/login";
+import { useState } from "react";
 
 const signUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit} = useForm();
+    const [serverError, setServerError] = useState(false);
     const onSubmit = async data => {
         login(data).then(value=>{
-            // console.log(value.userAccount)
-            console.log(value)
-            window.localStorage.setItem('userInfo',JSON.stringify({
-                id:value.id,
-                name:value.name,
-                email:value.email
-            }))
-            window.location.replace('/account/')
+            if(!value){
+                setServerError('Acest cont nu exista!')
+            }
+            else{
+                window.localStorage.setItem('userInfo',JSON.stringify({
+                    id:value.id,
+                    name:value.name,
+                    email:value.email
+                }))
+                window.location.replace('/account/')
+            }
         })
     }
-    // const firstRef=React.createRef()
-    // const handleSubmit=()=>{
-    //     console.log(firstRef.current.value)
-    //     console.log('123')
-    // }
     return(
         <>
             <Header/>
@@ -33,6 +32,7 @@ const signUp = () => {
                 <input placeholder="parola" type="password" {...register("parola")}></input>
                 <input type="submit"></input>
             </form>
+            {serverError && <span>{serverError}</span>}
             <Footer/>
         </>
     )
