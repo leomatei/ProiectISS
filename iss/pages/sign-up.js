@@ -7,7 +7,10 @@ import signup from "./api/signup"
 
 const signUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = async data => await signup({...data, seller: false},'')
+    const onSubmit = async data => {
+        await signup({...data, seller: false},'')
+        window.location.replace("/");
+    }
     return(
         <>
             <Header/>

@@ -28,6 +28,11 @@ return (
             children={logo}
         />
         <div className="header__buttons">
+            <ButtonLink
+                buttonClass="header__button"
+                clickAction="/shopping-cart"
+                text="Cosul meu"
+            />
             {!userInfo && <>
                 <ButtonLink
                     buttonClass="header__button"

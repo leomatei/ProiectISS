@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Image from 'next/image'
 
 const ProductList= (products) => {
     return <>
@@ -9,7 +10,7 @@ const ProductList= (products) => {
                     {index+1}.{product.productName}-{product.productDescription}
                     <div className="product__actions">
                         {product.productPrice} lei
-                        <img width="40" height="40" src={product.productPhoto.url}></img>
+                        <Image width="40" height="40" src={product.productPhoto.url}/>
                     </div>
                 </a>
                 </li>)
