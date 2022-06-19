@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import signup from "./api/signup"
 
 
-const signUp = () => {
+const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async data => {
         await signup({...data, seller: false},'')
@@ -32,4 +32,4 @@ const signUp = () => {
     )
 }
 
-export default signUp;
+export default SignUp;
