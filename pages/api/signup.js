@@ -1,6 +1,6 @@
 import {gql, GraphQLClient} from 'graphql-request'
 
-export default async function(req, res){
+export default async function SignUpAPI(req, res){
     const url = process.env.NEXT_PUBLIC_GRAPH_CMS_ENDPOINT
     const graphQLClient=new GraphQLClient (url, {
         headers:{

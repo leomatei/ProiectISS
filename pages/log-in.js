@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import login from "./api/login";
 import { useState } from "react";
 
-const signUp = () => {
+const SignUp = () => {
     const { register, handleSubmit} = useForm();
     const [serverError, setServerError] = useState(false);
     const onSubmit = async data => {
@@ -38,4 +38,4 @@ const signUp = () => {
     )
 }
 
-export default signUp;
+export default SignUp;

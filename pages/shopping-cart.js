@@ -3,7 +3,7 @@ import Footer from "../public/components/footer"
 import Link from "next/link";
 import { React, useState, useEffect } from "react";
 
-const shoppingCart=()=>{
+const ShoppingCart=()=>{
     
     const [data, setData]=useState()
     useEffect(()=>{
@@ -36,4 +36,4 @@ const shoppingCart=()=>{
     )
 }
 
-export default shoppingCart;
+export default ShoppingCart;
