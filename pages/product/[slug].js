@@ -34,7 +34,7 @@ export const getServerSideProps = async(pageContext) =>{
         pageSlug,
     }
 
-    const data = await graphQLClient.request(query, variables)
+    const data = await graphQLClient.request(query, variables).catch(()=>{products:null})
     const product = data.product
     return {
         props:{
