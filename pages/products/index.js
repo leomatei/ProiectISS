@@ -26,12 +26,17 @@ export const getStaticProps = async () =>{
     }
     }`
 
-    const data=await graphQLClient.request(query).catch(()=>{products:null})
-    const products=data.products
-    return {
-    props:{
-        products,
+    const data=await graphQLClient.request(query)
+    if(data){
+        const products=data.products
+        return {
+        props:{
+            products,
+            }
         }
+    }
+    else{
+        return false
     }
 }
 
