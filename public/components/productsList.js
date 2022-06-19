@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import Image from 'next/image'
+import { server } from "../../config";
 
 const ProductList= (products) => {
     return <>
         <ul>
         {products.products.map((product,index)=>{
             return (<li key={product.id} >
-                <a className="product" href={`../product/${product.slug}`}>
+                <a className="product" href={`${server}/product/${product.slug}`}>
                     {index+1}.{product.productName}-{product.productDescription}
                     <div className="product__actions">
                         {product.productPrice} lei
