@@ -3,13 +3,14 @@ import Footer from "../public/components/footer"
 import React from "react"
 import { useForm } from "react-hook-form";
 import signup from "./api/signup"
+import { server } from "../config";
 
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async data => {
         await signup({...data, seller: false},'')
-        window.location.replace("/");
+        window.location.replace(server);
     }
     return(
         <>
