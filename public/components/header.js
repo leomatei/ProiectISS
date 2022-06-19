@@ -2,6 +2,7 @@ import ButtonLink from "./buttonLink";
 import SimpleButton from "./simpleButton";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { server } from "../../config";
 
 const Header=()=>{
     const [userInfo, setUserInfo] = useState(false)
@@ -18,7 +19,7 @@ const Header=()=>{
     
     const logOut = () => {
         window.localStorage.setItem('userInfo',JSON.stringify({}))
-        window.location.replace('/')
+        window.location.replace(server)
     }
 return (
     <div className="header">

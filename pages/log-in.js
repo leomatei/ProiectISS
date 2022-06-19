@@ -3,6 +3,7 @@ import Footer from "../public/components/footer"
 import { useForm } from "react-hook-form";
 import login from "./api/login";
 import { useState } from "react";
+import { server } from "../config";
 
 const SignUp = () => {
     const { register, handleSubmit} = useForm();
@@ -18,7 +19,7 @@ const SignUp = () => {
                     name:value.name,
                     email:value.email
                 }))
-                window.location.replace('/account/')
+                window.location.replace(`${server}/account/`)
             }
         })
     }
