@@ -26,7 +26,7 @@ export const getStaticProps = async () =>{
     }
     }`
 
-    const data=await graphQLClient.request(query).catch(()=>{{}})
+    const data=await graphQLClient.request(query).catch(()=>{products:null})
     const products=data.products
     return {
     props:{
@@ -43,7 +43,7 @@ const ProductsPage = ({products}) =>{
             <Header/>
             <div className='container'>
                 <h1 className='container__title'>Produse</h1>
-                <ProductList products={products}/>
+                {products && <ProductList products={products}/>}
             </div>
             <Footer/>
         </>
